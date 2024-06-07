@@ -34,7 +34,7 @@ const rutas = require('./src/routes/adminRoutes.js')
 
 const app = express()
 
-const port = 3000 || process.env.port || 8080   //defino el puerto del servidor
+const port = 3000 || process.env.PORT || 8080
 
 app.use(express.static(__dirname + '/public'))
 app.use(express.urlencoded({ extended: true }))
@@ -46,7 +46,9 @@ app.use((rew, res, next) => {
     res.status(404).send(`<h1 style="color: red"> Recurso no encontrado!</h1>`)
 })
 
-app.listen(port, () => console.log(`Hola, estoy arriba en el puerto: ${port}`))
+const IP = '127.0.0.1';
+
+app.listen(port, IP, () => console.log(`Hola, estoy arriba en el puerto: ${port}`))
 
 
 
