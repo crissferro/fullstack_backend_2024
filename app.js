@@ -30,7 +30,8 @@ server.listen(3000, () => console.log(`Servidor arriba en el puerto 3000`))
 
 const express = require(`express`)
 const override = require('method-override')
-const rutas = require('./src/routes/adminRoutes.js')
+// const rutas = require('./src/routes/adminRoutes.js')
+const rutas = require('./src/routes/mainRoutes.js')
 
 const app = express()
 
@@ -41,8 +42,9 @@ app.use(express.urlencoded({ extended: true }))
 app.use(override('_metodo'))
 
 app.use('/', rutas)
+//app.use('/admin', rutasAdmin) // /admin/loquesea /admin/xyz
 
-app.use((rew, res, next) => {
+app.use((req, res, next) => {
     res.status(404).send(`<h1 style="color: red"> Recurso no encontrado!</h1>`)
 })
 
@@ -63,11 +65,13 @@ app.get("/hola", (req, res) => {
 })
 */
 //para enviar un archivo html
-app.get("/", (req, res) => {
+/* app.get("/", (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
 
 
 app.listen(port, () => console.log(`Estoy arriba en el puerto: ${port}`))  //me muestra el puerto en el que esta levantado
+
+*/
 
 
