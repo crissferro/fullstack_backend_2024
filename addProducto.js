@@ -13,4 +13,4 @@ async function addProduct(nombre, descripcion, precio, id_tipoProducto, marca, i
     }
 }
 
-addProduct('Cápsula de Café', 'Cápsula de café expreso', 500, 1, 'Dolce Gusto', 'imagen.jpg');
+addProduct('Café Perú', 'Auténtico café de Perú. ', 11000, 2, 'Cabrales', 'imagen.jpg');

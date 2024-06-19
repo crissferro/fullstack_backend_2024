@@ -26,4 +26,4 @@ async function addStock(productId, quantity) {
 }
 
 // Prueba la función con un ID de producto específico y cantidad
-addStock(1, 50);
+addStock(3, 150);
