@@ -22,7 +22,3 @@ app.use((req, res, next) => {
 const IP = '127.0.0.1';
 
 app.listen(port, IP, () => console.log(`Hola, estoy arriba en el puerto: ${port}`))
-
-
-
-

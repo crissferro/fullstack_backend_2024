@@ -1,24 +1,28 @@
 const express = require('express')
 const router = express.Router()
-const path = require('path')
+const controladores = require(`../controllers/mainController`)
+const multer = require('multer')
+// const path = require('path')
 
-router.get("/dinamic/:num", (req, res) => {
-	//console.log(req.params.num)
-	res.sendFile(path.resolve(__dirname + `./../views/dinamico${req.params.num}.html`))
+
+const storage = multer.diskStorage({
+	destination: (req, file, cb) =>{
+		cb(null, `public/img/`)
+	},
+	filename: (req, file, cb) =>{
+		console.log(file)
+		cb(null. Date.now() + "_" + file.originalname)
+	}
 })
 
-router.post('/dinamic', (req, res)=>{
-	//console.log(req.body)
-	res.send(`<h2>Se hizo algo con ${req.body.create} en el create</h2><a href="/dinamic/1">Regresar a la página anterior</a>`)
-	//res.json(req.body.create)
-})
+const uploadFile = multer({storage})
 
-router.put('/dinamic', (req, res)=>{
-	res.send(`<h2>Se hizo algo con ${req.body.actualizar} en el update</h2><a href="/dinamic/1">Regresar a la página anterior</a>`)
-})
+router.get("/listado", controladores.getListado)
+router.post('/listado', uploadFile.single('archivo'), controladores.crearRegistro)
+router.get('/modificar/:id', controladores.getModificar)
+router.put('/modificar', controladores.actualizar)
+router.delete('/listado', controladores.eliminar)
 
-router.delete('/dinamic', (req, res)=>{
-	res.send(`<h2>Se hizo algo con ${req.body.eliminar} en el delete</h2><a href="/dinamic/1">Regresar a la página anterior</a>`)
-})
+
 
 module.exports = router
