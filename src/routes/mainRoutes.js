@@ -23,6 +23,4 @@ router.get('/modificar/:id', controladores.getModificar)
 router.put('/modificar', controladores.actualizar)
 router.delete('/listado', controladores.eliminar)
 
-
-
 module.exports = router

@@ -268,6 +268,7 @@ form label{
 
 form input[type="text"],
 form input[type="email"],
+form input[type="number"],
 form input[type="tel"]{
 	width:450px;
 	padding:3px 10px;
@@ -319,6 +320,96 @@ textarea{
 
 
 /*.........FIN CONTACTENOS...........*/
+
+/*.........INICIO LISTADO...........*/
+
+h2 {  
+  max-width: 1200px;
+  margin: auto;
+  width: 100%;
+  color: #202630;
+  font-size: 24px;
+  margin-top: 56px;
+  margin-bottom: 32px;
+}
+
+#listado {
+  width:1000px;
+	padding:16px;
+	margin:auto;
+  border: 1px solid lightgray;
+  box-shadow: 2px 2px 8px 4px #d3d3d3d1;
+  border-radius:15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+form label{
+	width:72px;
+	font-weight: bold;
+	display: flex;
+  flex-direction:column;
+  justify-content:space-between;
+  width: auto;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"],
+form input[type="tel"]{
+	width:450px;
+	padding:3px 10px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;
+	margin:8px 0;
+	display:inline-block;
+}
+
+form input[type="submit"]{
+	width:50%;
+	margin-top:32px;
+  border: none;
+  border-radius: 10px;
+  background-color: #d1b3c4;
+  font-family: 'introbold';
+  color: white;
+  font-weight: 500;
+  font-size: 25px;
+  width: 150px;
+  height: 40px;
+} 
+
+form input[type="submit"]:hover{
+  border: none;
+  background-color: #b392ac;
+  transform: scale(1.2);
+}
+
+textarea{
+	width:450px;
+	height:100px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;			
+	margin:8px 0;
+	/*resize: vertical | horizontal | none | both*/
+	resize:none;
+	display:block;
+}
+
+.forma-contacto, .fecha_hora {
+  width: 450px;
+  display:flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+
+
+/*.........FIN LISTADO...........*/
+
 
 
 /*..........responsive.............*/

@@ -29,7 +29,6 @@ module.exports = {
         
     },
 
-
 	getModificar: async (req, res) =>{
 		const [modificar] = await conn.query(`SELECT * FROM productos WHERE id=?`, req.params.id)
 		console.log(modificar)
@@ -45,14 +44,13 @@ module.exports = {
 		const modificado = await conn.query(sql, [nombre, descripcion, precio, id_tipoProducto, id_marca, idMod])
 		console.log(modificado)
 		res.redirect('/listado.html')
-		//res.send(`<h2>Se hizo algo con ${req.body.actualizar} en el update</h2><a href="/dinamic/1">Regresar a la página anterior</a>`)
 	},
+
 
 	eliminar: async (req, res)=>{
 		const eliminado = await conn.query(`DELETE FROM productos WHERE id=?`, req.body.idEliminar)
 		console.log(eliminado)
         res.redirect('/listado.html')
-		//res.send(`<h2>Se hizo algo con ${req.body.eliminar} en el delete</h2><a href="/dinamic/1">Regresar a la página anterior</a>`)
 	},
 
 }

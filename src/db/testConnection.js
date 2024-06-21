@@ -1,4 +1,4 @@
-const { conn } = require('./src/db/dbconnection');
+const { conn } = require('./dbconnection');
 
 async function testConnection() {
     try {
