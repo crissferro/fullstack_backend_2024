@@ -9,9 +9,8 @@ document.querySelector('body').onload = async () => {
 			<h4>${registro.nombre}</h4>
 			<h4>${registro.descripcion}</h4>
 			<h4>${registro.precio}</h4>
-            <h4>${registro.id_tipoProdcucto}</h4>
+            <h4>${registro.id_tipoProducto}</h4>
 			<h4>${registro.id_marca}</h4>
-			<h4>${registro.imagen}</h4>
 			<input type="hidden" name="idEliminar" value="${registro.id}">
 			<h4><button><a href="/modificar/${registro.id}">Modificar</a></h4>
 			<h4><input type="submit" value="Eliminar"></h4>

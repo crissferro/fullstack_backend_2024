@@ -8,6 +8,9 @@ const app = express()
 
 const port = 8080 || process.env.PORT || 3000
 
+app.set('view engine', 'ejs')
+app.set('views', (__dirname + '/src/views'))
+
 app.use(express.static(__dirname + '/public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(override('_metodo'))

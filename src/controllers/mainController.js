@@ -15,15 +15,14 @@ module.exports = {
 
     crearRegistro: async (req, res) => {
             const sql = `
-                INSERT INTO productos (nombre, descripcion, precio, id_tipoProducto, id_marca, imagen)
-                VALUES (?, ?, ?, ?, ?, ?)`;
+                INSERT INTO productos (nombre, descripcion, precio, id_tipoProducto, id_marca)
+                VALUES (?, ?, ?, ?, ?)`;
             const creado = await conn.query(sql, [
                 req.body.nombre, 
                 req.body.descripcion, 
                 parseFloat(req.body.precio), 
                 req.body.id_tipoProducto, 
-                req.body.id_marca, 
-                req.file.filename
+                req.body.id_marca
             ])
             console.log('Producto agregado:', creado);
             res.redirect('/listado.html');
@@ -35,15 +34,15 @@ module.exports = {
 		const [modificar] = await conn.query(`SELECT * FROM productos WHERE id=?`, req.params.id)
 		console.log(modificar)
 		res.render('modificar', {
-			tituloDePagina: 'Página para Modificar Items',
+			tituloDePagina: 'Página para Modificar Productos',
 			registro: modificar[0]
 			})
 	},
 
 	actualizar: async (req, res)=>{
-		const sql = `UPDATE Items SET nombre=?, descripcion=?, precio=?, id_tipoProducto=?, id_marca=?, imagen=? WHERE id=?`
-		const {idMod, item, precio, descripcion} = req.body
-		const modificado = await conn.query(sql, [item, precio, descripcion, idMod])
+		const sql = `UPDATE productos SET nombre=?, descripcion=?, precio=?, id_tipoProducto=?, id_marca=? WHERE id=?`
+		const {idMod, nombre, descripcion, precio, id_tipoProducto, id_marca} = req.body
+		const modificado = await conn.query(sql, [nombre, descripcion, precio, id_tipoProducto, id_marca, idMod])
 		console.log(modificado)
 		res.redirect('/listado.html')
 		//res.send(`<h2>Se hizo algo con ${req.body.actualizar} en el update</h2><a href="/dinamic/1">Regresar a la página anterior</a>`)
