@@ -2,6 +2,43 @@ const { conn } = require('../db/dbconnection');
 
 module.exports = {
 
+	login: async (req, res) => {
+        const { username, password } = req.body;
+        const sql = `SELECT * FROM usuarios WHERE username = ? AND password = ?`;
+        const [user] = await conn.query(sql, [username, password]);
+        if (user.length > 0) {
+            req.session.user = user[0];
+            res.redirect('/listado.html');
+        } else {
+            res.send('Usuario o contraseña incorrectos');
+        }
+    },
+
+	getListado: async (req, res) => {
+        if (!req.session.user) {
+            return res.redirect('/login.html');
+        }
+        try {
+            const [registros] = await conn.query(`SELECT * FROM productos`);
+            res.json(registros);
+        } catch (error) {
+            throw error;
+        } finally {
+            conn.releaseConnection();
+        }
+    },
+
+    checkSession: (req, res) => {
+        if (req.session.user) {
+            res.json({ loggedIn: true });
+        } else {
+            res.json({ loggedIn: false });
+        }
+    },
+
+
+
+	/*
 	getListado: async (req, res) => {
 		try{
 			const [ registros ] = await conn.query(`SELECT * FROM productos`)
@@ -12,6 +49,7 @@ module.exports = {
 			conn.releaseConnection()
 		}
 	},
+	*/
 
     crearRegistro: async (req, res) => {
             const sql = `
@@ -52,5 +90,15 @@ module.exports = {
 		console.log(eliminado)
         res.redirect('/listado.html')
 	},
+
+	logout: (req, res) => {
+        req.session.destroy(err => {
+            if (err) {
+                return res.redirect('/listado.html');
+            }
+            res.clearCookie('connect.sid');
+            res.redirect('/index.html');
+        });
+    },
 
 }

@@ -4,6 +4,14 @@ const controladores = require(`../controllers/mainController`)
 //const multer = require('multer')
 // const path = require('path')
 
+router.post('/login', controladores.login);
+
+// Ruta para verificar si el usuario está logueado
+router.get('/check-session', controladores.checkSession);
+
+// Ruta de logout
+router.get('/logout', controladores.logout);
+
 /*
 const storage = multer.diskStorage({
 	destination: (req, file, cb) =>{
