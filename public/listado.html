@@ -20,12 +20,12 @@
       <h1>Solo Caps</h1>
     </div>
     <nav>
-		<a class="activo" href="index.html">Inicio</a>
+		<a href="index.html">Inicio</a>
 		<a href="productos.html">Productos</a>
 		<a href="accesorios.html">Accesorios</a>
 		<a href="contacto.html">Contactenos</a>
 		<a href="login.html" style="display:none;">Log In</a>
-		<a href="listado.html" id="listado-link">Listado</a>
+		<a class="activo"  href="listado.html" id="listado-link">Listado</a>
 		<a href="/logout">Logout</a>
 	  </nav>
       <!-- <img class="carrito" src="./img/img-nuevas/carrito.png" alt="" /> -->
@@ -39,25 +39,23 @@
 			
 		</article>
 		
-
-<article class="listado-agregar">
-	<h2>Agregar Producto Nuevo</h2>
-	<form action="/listado" method="POST" enctype="application/x-www-form-urlencoded">
-			<label for="nombre">Nombre:</label>
-			<input type="text" name="nombre">
-			<label for="descripcion">Descripcion:</label>
-			<input type="text" name="descripcion">
-			<label for="precio">Precio:</label>
-			<input type="text" name="precio">
-			<label for="id_tipoProducto">Tipo de Producto:</label>
-            <input type="text" name="id_tipoProducto">
-			<label for="id_marca">Marca:</label>
-            <input type="text" name="id_marca">
-			<input type="submit" value="Agregar">
-		</form><br>
-</article>
+		<h2>Agregar Producto Nuevo</h2>
+		<article class="listado-agregar">
+			<form action="/listado" method="POST" enctype="application/x-www-form-urlencoded"class="form_listado">
+					<label for="nombre">Nombre:</label>
+					<input type="text" name="nombre">
+					<label for="descripcion">Descripcion:</label>
+					<input type="text" name="descripcion">
+					<label for="precio">Precio:</label>
+					<input type="text" name="precio">
+					<label for="id_tipoProducto">Tipo de Producto:</label>
+					<input type="text" name="id_tipoProducto">
+					<label for="id_marca">Marca:</label>
+					<input type="text" name="id_marca">
+					<input type="submit" value="Agregar">
+			</form><br>
+		</article>
 		
-
 	</section>
 		
   </main>
