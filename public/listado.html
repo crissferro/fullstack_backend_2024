@@ -34,29 +34,36 @@
 
   <main>
 	<h2>Listado de Productos</h2>
-	<section id="listado">
-		<!--		<article>
+	<section>
+		<article>
 			<h4>Nombre Producto</h4>
 			<h4>Descripción</h4>
 			<h4>Precio</h4>
             <h4>Tipo de Producto</h4>
 			<h4>Marca</h4>
 		</article>
-		-->
+		<article id="listado">
+			
+		</article>
+		
 
 
 		<form action="/listado" method="POST" enctype="application/x-www-form-urlencoded">
+			<label for="nombre">Nombre:</label>
 			<input type="text" name="nombre">
+			<label for="descripcion">Descripcion:</label>
 			<input type="text" name="descripcion">
+			<label for="precio">Precio:</label>
 			<input type="text" name="precio">
+			<label for="id_tipoProducto">Tipo de Producto:</label>
             <input type="text" name="id_tipoProducto">
+			<label for="id_marca">Marca:</label>
             <input type="text" name="id_marca">
 			<input type="submit" value="Crear Nuevo Item">
 		</form><br>
 
 	</section>
-	
-
+		
   </main>
 
 		

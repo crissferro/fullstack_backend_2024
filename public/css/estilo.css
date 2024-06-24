@@ -345,7 +345,7 @@ h2 {
 }
 
 
-form label{
+#listado form label{
 	width:72px;
 	font-weight: bold;
 	display: flex;
